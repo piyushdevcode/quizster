@@ -3,31 +3,10 @@ import FlashCardList from "./FlashCardList";
 import './App.css';
 import axios from 'axios';
 function App() {
-  const [flashcards, setflashcards] = useState(QUESTIONS)
+  const [flashcards, setflashcards] = useState([]);
   const categoryEle = useRef();
   const questcountEle = useRef();
   const [categories,setcategeories] = useState([]);
-
-  useEffect(()=>{
-    axios.get('https://opentdb.com/api.php?amount=10')
-    .then(res=>{
-      setflashcards(res.data.results.map((questdetail,index) =>{
-        const randomindex = Math.floor(Math.random() * 3)
-        const options  = [...questdetail.incorrect_answers.map(opt => decoder(opt))];
-        options.splice(randomindex,0,decoder(questdetail.correct_answer))
-        return {
-          id : `${index}-${Date.now()}`,
-          question : decoder(questdetail.question),
-          ans: questdetail.correct_answer,
-          options: options,
-        }
-      }))
-    })
-    .catch(err=>{
-      console.log(err);
-    })
-
-  },[])
 
   // TO get the all categories available 
   useEffect(()=>{
@@ -45,7 +24,30 @@ function App() {
     return textArea.value;
   }
   function handleSubmit(e){
+    const no_ques = questcountEle.current.value;
+    const category_id = categoryEle.current.value;
     e.preventDefault();
+    axios.get('https://opentdb.com/api.php',{
+      params : 
+      {
+        amount: no_ques,
+        category: category_id}})
+    .then(res=>{
+      setflashcards(res.data.results.map((questdetail,index) =>{
+        const randomindex = Math.floor(Math.random() * 3)
+        const options  = [...questdetail.incorrect_answers.map(opt => decoder(opt))];
+        options.splice(randomindex,0,decoder(questdetail.correct_answer))
+        return {
+          id : `${index}-${Date.now()}`,
+          question : decoder(questdetail.question),
+          ans: questdetail.correct_answer,
+          options: options,
+        }
+      }))
+    })
+    .catch(err=>{
+      console.log(err);
+    })
     console.log("no of questions : ",questcountEle.value);
     console.log("Category selected: ",categoryEle.current.value);
     console.log("Category selected: ",categoryEle.current);
@@ -80,6 +82,7 @@ function App() {
 
 export default App;
 
+// SAMPLE QUESTIONS FOR TESTING
 const QUESTIONS =[
 {
   id: 1,
