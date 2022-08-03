@@ -27,6 +27,7 @@ body{
 }
 .card .front hr{
     opacity: .1;
+    border: 1px solid;
 }
 .header {
     width: 75vw;
@@ -46,13 +47,16 @@ body{
     font-size: 1.15rem;
     background-color: black;
     border-radius: .3rem;
-    padding: .2rem .7rem;
+    padding: .4rem .7rem;
     color: azure;
     transition: ease-in-out 200ms;
 }
 .form-group .btn:hover{
-    transform: scale(1.1) translateY(3px);
-    color: #00ffe5;
+    transform: scale(1.02) translateY(5px);
+    /* color: #00ffe5; */
+    /* font-weight: bold; */
+    letter-spacing: .03rem;
+    border: 2px solid #00ffe5;
     cursor: pointer;
 }
 .header label {

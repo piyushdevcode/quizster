@@ -72,7 +72,7 @@ function App() {
       </select>
     </div>
     <div className="form-group">
-      <button className="btn">Magic !</button>
+      <button className="btn">I'm Bored</button>
     </div>
     </form>
     <div className="container">
