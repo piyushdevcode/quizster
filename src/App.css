@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+
+body{
+    background-color: rgb(9, 13, 39);
+    font-family:'Poppins', Courier, monospace;
+    margin: 0;
+}
+.card-grid{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill,minmax(225px,1fr));
+    gap: 1rem;
+}
+.card {
+    border-radius: .5rem;
+    background-color: #141212;
+    color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 5px 2px #00ffe5;
+    transform-style: preserve-3d;
+    transition: 300ms;
+    cursor: pointer;
+    transform: perspective(1000px) rotateY(var(--rotate-y,0)) translateY(var(--translate-y,0));
+    
+}
+.header {
+    background-color:rgb(20, 18, 18);
+    border-radius: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: azure;
+    padding: 1rem;
+}
+.form-group{
+    margin : 1rem .7rem;
+}
+.btn{
+    margin-top: .3rem;
+    font-size: 1.15rem;
+    background-color: black;
+    border-radius: .3rem;
+    padding: .2rem .7rem;
+    color: azure;
+    transition: ease-in-out 200ms;
+}
+.form-group .btn:hover{
+    transform: scale(1.1) translateY(3px);
+    color: #00ffe5;
+    cursor: pointer;
+}
+.header label {
+    margin: 0 1rem;
+}
+.header select ,
+.header input{
+    font-size: 1rem;
+    color: azure;
+    background-color: #141212;
+}
+.container {
+    max-width: 900px;
+    margin: .8rem 2rem ;
+}
+.card:hover{
+    box-shadow: 0 0 5px 4px #00ffe5;
+    --translate-y: -5px;
+    
+}
+.card .front{
+    left: 0;
+}
+.card .front,
+.card .back{
+    position: absolute;
+    padding: 2rem 1rem;
+    backface-visibility: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card .back{
+    transform: rotateY(180deg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card.flip{
+    --rotate-y: 180deg;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.flashcard-options {
+    margin-top: .5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.flashcard-option {
+    margin-top: .3rem;
+    font-size: .9rem;
+    opacity: .8;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flashcard-option:first-child{
+    margin-top: 0px
 }
