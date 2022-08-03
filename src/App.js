@@ -60,7 +60,7 @@ function App() {
     <form className="header" onSubmit={handleSubmit}>
     <div className="form-group">
       <label htmlFor="question-count">No of questions</label>
-      <input type="number" id="ques-count" min={1} max={50} step="1" defaultValue={8}
+      <input type="number" id="question-count" name="question-count" min={1} max={50} step="1" defaultValue={8}
       ref={questcountEle}/>
     </div>
     <div className="form-group">

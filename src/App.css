@@ -44,10 +44,11 @@ body{
 }
 .btn{
     margin-top: .3rem;
-    font-size: 1.15rem;
-    background-color: black;
+    font-size: 1.05rem;
+    background-color: #141212;
+    border: .3px solid azure;
     border-radius: .3rem;
-    padding: .4rem .7rem;
+    padding: .6rem .7rem;
     color: azure;
     transition: ease-in-out 200ms;
 }
@@ -67,6 +68,7 @@ body{
 .header input{
     font-size: 1.1rem;
     color: azure;
+    padding: .3rem;
     background-color: #141212;
 }
 .container {
