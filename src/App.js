@@ -31,7 +31,9 @@ function App() {
       params : 
       {
         amount: no_ques,
-        category: category_id}})
+        category: category_id
+      }
+    })
     .then(res=>{
       setflashcards(res.data.results.map((questdetail,index) =>{
         const randomindex = Math.floor(Math.random() * 3)

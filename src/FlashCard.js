@@ -29,9 +29,10 @@ export default function FlashCard({ flashcard }) {
         onClick={()=> setflip(!flip)}>
             <div className='front' ref={cardfront}>
                 {flashcard.question}
+                <hr/>
                 <div className='flashcard-options'>
-                    {flashcard.options.map(option =>{
-                        return <div className='flashcard-option'>{option}</div>
+                    {flashcard.options.map((option,index) =>{
+                        return <div className='flashcard-option'>{index+1}. {option}</div>
                     })}
                 </div>
             </div>

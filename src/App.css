@@ -6,7 +6,7 @@ body{
 }
 .card-grid{
     display: grid;
-    align-items: center;
+    align-items: start;
     grid-template-columns: repeat(auto-fill,minmax(225px,1fr));
     gap: 1rem;
 }
@@ -18,15 +18,19 @@ body{
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: 0 0 5px 2px #00ffe5;
+    box-shadow: 0 0 3px 2px #00ffe5;
     transform-style: preserve-3d;
     transition: 300ms;
     cursor: pointer;
     transform: perspective(1000px) rotateY(var(--rotate-y,0)) translateY(var(--translate-y,0));
     
 }
+.card .front hr{
+    opacity: .1;
+}
 .header {
-    background-color:rgb(20, 18, 18);
+    width: 75vw;
+    margin: auto;
     border-radius: 1.2rem;
     margin-bottom: 1.5rem;
     color: azure;
@@ -34,6 +38,8 @@ body{
 }
 .form-group{
     margin : 1rem .7rem;
+    display: flex;
+    flex-direction: column;
 }
 .btn{
     margin-top: .3rem;
@@ -50,17 +56,20 @@ body{
     cursor: pointer;
 }
 .header label {
-    margin: 0 1rem;
+    font-size: .75rem;
+    opacity: .7;
 }
 .header select ,
 .header input{
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: azure;
     background-color: #141212;
 }
 .container {
     max-width: 900px;
-    margin: .8rem 2rem ;
+    width: 80vw;
+    margin: auto;
+    /* margin: .8rem 2rem ; */
 }
 .card:hover{
     box-shadow: 0 0 5px 4px #00ffe5;
